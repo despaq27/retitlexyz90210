@@ -1,0 +1,63 @@
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+  <!-- Background -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-black"></div>
+    <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6">
+    <h1 id="hero-title" class="text-7xl md:text-9xl font-black uppercase tracking-tighter text-white mb-4" style="opacity: 0; transform: translateY(50px);">
+      RETITLED
+    </h1>
+    <p id="hero-subtitle" class="text-lg md:text-xl text-zinc-400 font-mono tracking-widest mb-12" style="opacity: 0;">
+      RETITLE YOUR LOOK
+    </p>
+
+    <!-- Theme Buttons -->
+    <div id="hero-buttons" class="flex flex-col sm:flex-row gap-4 justify-center" style="opacity: 0; transform: translateY(20px);">
+      <a href="/collections/street" class="group relative px-12 py-4 bg-white text-black font-black uppercase tracking-wider text-lg overflow-hidden transition-all duration-300 hover:bg-zinc-200">
+        <span class="relative z-10">STREET</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <span class="relative z-10 group-hover:text-white transition-colors duration-300">STREET</span>
+      </a>
+      <a href="/collections/studio" class="group relative px-12 py-4 border-2 border-white text-white font-black uppercase tracking-wider text-lg overflow-hidden transition-all duration-300 hover:bg-white hover:text-black">
+        <span>STUDIO</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap.to('#hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' });
+    gsap.to('#hero-subtitle', { opacity: 1, duration: 1, delay: 0.3, ease: 'power3.out' });
+    gsap.to('#hero-buttons', { opacity: 1, y: 0, duration: 0.8, delay: 0.6, ease: 'power3.out' });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "RETITLED"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "RETITLE YOUR LOOK"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}
